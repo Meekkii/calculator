@@ -37,6 +37,8 @@ steps {
 sh "docker build -t calculator ."
 }
 }
+stage("Docker push") {
+steps {sh "docker push localhost:5000/calculator"}
 }
 post {
 always {
