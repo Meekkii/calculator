@@ -51,6 +51,7 @@ sleep 60
 sh "chmod +x acceptance_test.sh && ./acceptance_test.sh"
 }
 }
+}
 post {
 always {
 mail to: 'ezamine92@gmail.com',
@@ -58,4 +59,4 @@ subject: "Cher lion Votre compilation est terminée: ${currentBuild.fullDisplayN
 body: " Votre build est accompli, Veuilez vérifier: ${env.BUILD_URL}"
 }
 }
-}
+
