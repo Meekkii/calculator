@@ -27,6 +27,16 @@ reportName: "Checkstyle Report"
 ])
 }
 }
+stage("Package") {
+steps {
+sh "./gradlew build"
+}
+}
+stage("Docker build") {
+steps {
+sh "docker build -t calculator ."
+}
+}
 }
 post {
 always {
