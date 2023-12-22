@@ -83,6 +83,8 @@ pipeline {
                 body: "Votre build est accompli. Veuillez vérifier: ${env.BUILD_URL}"
             }
         }
+	success {
+		sh "docker stop calculator"
     }
 }
 
