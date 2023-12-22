@@ -62,7 +62,7 @@ pipeline {
         stage("Déploiement sur staging") {
             steps {
                 script {
-		    sh "docker stop calculator"
+		    sh "docker container stop calculator"
                     sh "docker run -d -p 8765:8080 --name calculator --restart unless-stopped localhost:5000/calculator"
                 }
             }
