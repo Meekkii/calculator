@@ -51,7 +51,7 @@ pipeline {
 	}
         stage("Déploiement sur staging") {
             steps {
-                sh "docker run -d --rm -p 8889:8080 --name jenkins_calculator localhost:5000/calculator"
+                sh "docker run -d --rm -p 8765:8080 --name calculator localhost:5000/calculator"
             }
         }
         stage("Test d'acceptation") {
@@ -68,7 +68,7 @@ pipeline {
 			body: " Votre build est accompli, Veuilez vérifier: ${env.BUILD_URL}"
 		}
 		success{
-			sh "docker stop jenkins_calculator"
+			sh "docker stop calculator"
 		}
 	}
 	
