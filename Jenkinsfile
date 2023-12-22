@@ -70,7 +70,7 @@ pipeline {
         stage("Test d'acceptation") {
             steps {
                 script {
-                    sleep time: 60, unit: 'SECONDS'
+                    sleep time: 5, unit: 'SECONDS'
                     sh "chmod +x acceptance_test.sh && ./acceptance_test.sh"
                 }
             }
