@@ -79,7 +79,6 @@ pipeline {
 
     post {
         always {
-            script {
                 mail to: 'ezamine92@gmail.com',
                 subject: "Cher lion, votre compilation est terminée: ${currentBuild.fullDisplayName}",
                 body: "Votre build est accompli. Veuillez vérifier: ${env.BUILD_URL}"
