@@ -63,7 +63,7 @@ pipeline {
             steps {
                 script {
 		    sh "docker container stop feature_calculator"
-                    sh "docker run -d -p 8765:8080 --name feature_calculator --restart unless-stopped localhost:5000/calculator"
+                    sh "docker run -d -p 8766:8080 --name feature_calculator --restart unless-stopped localhost:5000/calculator"
                 }
             }
         }
@@ -84,7 +84,8 @@ pipeline {
                 subject: "Cher lion, votre compilation est terminée: ${currentBuild.fullDisplayName}",
                 body: "Votre build est accompli. Veuillez vérifier: ${env.BUILD_URL}"
             }
-        }
+        }success {
+		sh "docker stop feature_calculator"
     }
 }
 
